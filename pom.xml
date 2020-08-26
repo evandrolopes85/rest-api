@@ -7,35 +7,34 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-	<!-- Ele que gerencia tudo o que o java entendede Web e HTTTP -->
+		<!-- Ele que gerencia tudo o que o java entendede Web e HTTTP -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>3.0.0-M6</version>
+			<version>2.31</version>
 		</dependency>
 
-		<!-- Tipos de dados que o jersey vai trabalhar, os midias types
-		o que eu posso passar de info para os meus serviços e o que posso
-		receber -->
+		<!-- Tipos de dados que o jersey vai trabalhar, os midias types o que eu 
+			posso passar de info para os meus serviços e o que posso receber -->
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-moxy</artifactId>
-			<version>3.0.0-M6</version>
+			<version>2.31</version>
 		</dependency>
 
 		<!-- O nucleo do jersey -->
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>3.0.0-M6</version>
+			<version>2.31</version>
 		</dependency>
 
-		<!-- Bibilioteca obrigatoria o nucleo de jersey tem classes 
-		que depende dessa biblioteca -->
+		<!-- Bibilioteca obrigatoria o nucleo de jersey tem classes que depende 
+			dessa biblioteca -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.14</version>
+			<version>1.10</version>
 		</dependency>
 
 		<dependency>

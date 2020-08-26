@@ -57,7 +57,7 @@ public class NotaDAO {
 	public void addNota( Nota nota ) throws Exception {
 		Connection con = BDConfig.getConnection();
 		
-		String sql = "INSERT INT TB_NOTA(TITULO, DESCRICAO) VALUES(?,?)";
+		String sql = "INSERT INTO TB_NOTA(TITULO, DESCRICAO) VALUES(?,?)";
 		
 		PreparedStatement ps = con.prepareStatement( sql );
 	

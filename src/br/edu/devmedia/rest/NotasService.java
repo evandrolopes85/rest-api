@@ -1,21 +1,25 @@
 package br.edu.devmedia.rest;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-
 import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import br.edu.devmedia.dao.NotaDAO;
 import br.edu.devmedia.entidade.Nota;
 
 @Path( "/notas" )
 public class NotasService {
+	private static final String CHARSET_UTF8 =";charset=utf-8;";
 	private NotaDAO notaDAO;
 	
 	@PostConstruct
@@ -37,8 +41,38 @@ public class NotasService {
 		return lista;
 	}
 	
-	@POST
-	@Path( "/edit/{id}")
+	@GET
+	@Path( "/list/{id}" )
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response listarNotas(@PathParam( "id" ) int id) {
+		Nota nota = null;
+		try{
+			Response.ok(notaDAO.buscaNotaPorId(id)).build();
+		}catch( Exception ex ){
+			ex.printStackTrace();
+		}
+		
+		return Response.status(404).build();
+	}
+	
+	/*@GET
+	@Path( "/list/{id}" )
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Nota listarNotas(@PathParam( "id" ) int id) {
+		Nota nota = null;
+		try{
+			nota = notaDAO.buscaNotaPorId( id );
+		}catch( Exception ex ){
+			ex.printStackTrace();
+		}
+		
+		return nota;
+	}*/
+	
+	@PUT
+	@Path("/edit/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String editarNota( Nota nota, @PathParam( "id" ) int idNota ){
@@ -59,7 +93,28 @@ public class NotasService {
 	}
 	
 	@POST
-	@Path( "/delete/{id}")
+	@Path("/add")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String adicionarNota( Nota nota ){
+		String msg = "";
+		
+		System.out.println( nota.getTitulo() );
+		
+		try{
+			notaDAO.addNota(nota);;
+			
+			msg = "Nota adicionada com sucesso!";
+		}catch( Exception ex ){
+			msg = "Erro ao adicionar nota!";
+			ex.printStackTrace();
+		}
+		
+		return msg;
+	}
+	
+	@DELETE
+	@Path( "/delete/{id}" )
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String removerNota( @PathParam( "id" ) int idNota ){
