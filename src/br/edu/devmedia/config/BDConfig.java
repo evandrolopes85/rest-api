@@ -10,7 +10,7 @@ public class BDConfig {
 	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException{
 		Class.forName( "com.mysql.jdbc.Driver" );
-		connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/notas_db", "evandro", "evandro" );
+		connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/notas_db", "root", "Labr@d0r" );
 		
 		return connection;
 	}

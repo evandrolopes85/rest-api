@@ -11,7 +11,7 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>2.31</version>
+			<version>3.0.0-M6</version>
 		</dependency>
 
 		<!-- Tipos de dados que o jersey vai trabalhar, os midias types o que eu 
@@ -19,14 +19,14 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-moxy</artifactId>
-			<version>2.31</version>
+			<version>3.0.0-M6</version>
 		</dependency>
 
 		<!-- O nucleo do jersey -->
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>2.31</version>
+			<version>3.0.0-M6</version>
 		</dependency>
 
 		<!-- Bibilioteca obrigatoria o nucleo de jersey tem classes que depende 
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.10</version>
+			<version>1.14</version>
 		</dependency>
 
 		<dependency>
@@ -53,8 +53,8 @@
 				<version>3.8.1</version>
 
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 

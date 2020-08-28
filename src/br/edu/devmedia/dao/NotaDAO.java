@@ -11,6 +11,20 @@ import br.edu.devmedia.entidade.Nota;
 
 public class NotaDAO {
 	
+	/*public List< Nota > listarNotas() throws Exception {
+		List< Nota > lista = new ArrayList<>();
+		
+		Nota nota = new Nota();
+		
+		nota.setId(1);
+		nota.setDescricao("Aparecelho de TV");
+		nota.setTitulo("Casas Bahia");
+		
+		lista.add(nota);
+		
+		return lista;
+	}*/
+	
 	public List< Nota > listarNotas() throws Exception {
 		List< Nota > lista = new ArrayList<>();
 		
